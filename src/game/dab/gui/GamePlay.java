@@ -268,6 +268,7 @@ public class GamePlay {
 				soundButton.setIcon(new ImageIcon(img));
 				soundButton.setPreferredSize(new Dimension(40, 40));
 				parent.sound.pause();
+				parent.mute = true;
 			} else {
 				Image img = null;
 				try {
@@ -279,6 +280,7 @@ public class GamePlay {
 				soundButton.setIcon(new ImageIcon(img));
 				soundButton.setPreferredSize(new Dimension(40, 40));
 				parent.sound.play();
+				parent.mute = false;
 			}
 		}
 	};
@@ -401,14 +403,14 @@ public class GamePlay {
 		Image img = null;
 		if (parent.mute == false) {
 			try {
-				img = ImageIO.read(getClass().getResource("play.png"));
+				img = ImageIO.read(getClass().getResource("../play.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		} else {
 			try {
-				img = ImageIO.read(getClass().getResource("mute.png"));
+				img = ImageIO.read(getClass().getResource("../mute.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

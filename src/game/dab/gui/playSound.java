@@ -18,7 +18,7 @@ public class playSound extends Thread {
     }
     
     public void play() {
-		clip.play();
+		clip.loop();
 	}
 
 	public void run() {

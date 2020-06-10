@@ -37,6 +37,7 @@ public class Main {
 	private JFrame frame;
 	playSound sound = new playSound("../final.wav");
 	boolean mute = false;
+	private int count = 0;
 	
 	String[] players = { "Select player", "Human", "Easy", "Medium" };
 	private JRadioButton[] sizeButton;
@@ -117,7 +118,7 @@ public class Main {
 				Image img = null;
 				mute = true;
 				try {
-					img = ImageIO.read(getClass().getResource("mute.png"));
+					img = ImageIO.read(getClass().getResource("../mute.png"));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -125,10 +126,11 @@ public class Main {
 				soundButton.setIcon(new ImageIcon(img));
 				soundButton.setPreferredSize(new Dimension(40, 40));
 				sound.pause();
+				mute = true;
 			} else {
 				Image img = null;
 				try {
-					img = ImageIO.read(getClass().getResource("play.png"));
+					img = ImageIO.read(getClass().getResource("../play.png"));
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -213,12 +215,23 @@ public class Main {
 		++constraints.gridy;
 		JPanel helpPanel = new JPanel(new GridLayout(1, 2));
 		Image img = null;
-		try {
-			img = ImageIO.read(getClass().getResource("../play.png"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		if (mute == false) {
+			try {
+				img = ImageIO.read(getClass().getResource("../play.png"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
+		else {
+			try {
+				img = ImageIO.read(getClass().getResource("../mute.png"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
 		soundButton.setIcon(new ImageIcon(img));
 		soundButton.setPreferredSize(new Dimension(40, 40));
 		soundButton.addActionListener(soundListener);
@@ -240,7 +253,11 @@ public class Main {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		sound.start();
+		if(count == 0 )
+		{
+			sound.start();
+			count++;
+		}
 		startGame = false;
 		while (!startGame) {
 			try {
