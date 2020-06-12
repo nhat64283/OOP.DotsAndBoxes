@@ -39,7 +39,7 @@ public class Main {
 	boolean mute = false;
 	private int count = 0;
 	
-	String[] players = { "Select player", "Human", "Easy", "Medium" };
+	String[] players = { "Select player", "Human", "Random Solver", "Minimax Solver" };
 	private JRadioButton[] sizeButton;
 
 	JComboBox<String> redList, blueList;
