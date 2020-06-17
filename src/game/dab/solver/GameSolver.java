@@ -8,7 +8,7 @@ public abstract class GameSolver {
     protected int referenceColor;
     private final static int cScore = 20;
     private final static int cThree = 15;
-    private final static int cTwo = 1;
+    private final static int cTwo = 10;
 
     protected int heuristic(final Board board, int color) {
         int value;
