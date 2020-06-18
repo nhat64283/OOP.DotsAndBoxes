@@ -247,6 +247,7 @@ public class GamePlay {
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			goBack = true;
+			board.clear();
 		}
 	};
 

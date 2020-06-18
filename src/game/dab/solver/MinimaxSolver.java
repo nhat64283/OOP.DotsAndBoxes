@@ -19,9 +19,7 @@ public class MinimaxSolver extends GameSolver {
 		int currentColor, currentScore;
 		long oldTime = System.nanoTime();
 		long timeOut = 980000000;
-		/*
-		 * long r=board.getAvailableMoves().size(); long size=1 + r, lastSize=r ; r--;
-		 */
+		
 
 		TreeNode rootNode = new TreeNode(board, color, null, null), levelNode = null;
 		queue.add(rootNode);
@@ -51,13 +49,6 @@ public class MinimaxSolver extends GameSolver {
 				}
 
 			} else {
-				/*
-				 * size += lastSize*r ;
-				 * 
-				 * if( size>=100000L || r==0 ) break;
-				 * 
-				 * lastSize *= r ; r--;
-				 */
 				queue.add(levelNode);
 			}
 		} while (queue.size() != 0);
