@@ -194,5 +194,13 @@ public class Board implements Cloneable {
 		}
 		return count;
 	}
+	
+	public void clear() {
+		box.clear();
+		hEdges.clear();
+		vEdges.clear();
+		redScore = 0;
+		blueScore = 0;
+	}
 
 }
